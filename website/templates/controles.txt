@@ -1,0 +1,85 @@
+Input
+<div class="form-group form-md-line-input form-md-floating-label">
+    <input class="form-control" id="form_control_1" value="test" type="text">
+    <label for="form_control_1">Regular input</label>
+    <span class="help-block">Some help goes here...</span>
+</div>
+Vertical Checkboxes
+bootstrap3/layout/checkboxselectmultiple.html
+<div class="form-group form-md-checkboxes">
+    <label>Checkboxes</label>
+    <div class="md-checkbox-list">
+        <div class="md-checkbox">
+            <input id="checkbox1" class="md-check" type="checkbox">
+            <label for="checkbox1">
+                <span></span>
+                <span class="check"></span>
+                <span class="box"></span> Option 1 </label>
+        </div>
+        <div class="md-checkbox">
+            <input id="checkbox2" class="md-check" checked="" type="checkbox">
+            <label for="checkbox2">
+                <span class="inc"></span>
+                <span class="check"></span>
+                <span class="box"></span> Option 2 </label>
+        </div>
+        <div class="md-checkbox">
+            <input id="checkbox3" class="md-check" type="checkbox">
+            <label for="checkbox3">
+                <span></span>
+                <span class="check"></span>
+                <span class="box"></span> Option 3 </label>
+        </div>
+        <div class="md-checkbox">
+            <input id="checkbox4" disabled="" class="md-check" type="checkbox">
+            <label for="checkbox4">
+                <span></span>
+                <span class="check"></span>
+                <span class="box"></span> Disabled </label>
+        </div>
+    </div>
+</div>
+Inline Radiochoices
+bootstrap3/layout/radioselect.html
+<div class="form-group form-md-radios">
+    <label>Checkboxes</label>
+    <div class="md-radio-inline">
+        <div class="md-radio">
+            <input id="radio6" name="radio2" class="md-radiobtn" type="radio">
+            <label for="radio6">
+                <span class="inc"></span>
+                <span class="check"></span>
+                <span class="box"></span> Option 1 </label>
+        </div>
+        <div class="md-radio">
+            <input id="radio7" name="radio2" class="md-radiobtn" checked="" type="radio">
+            <label for="radio7">
+                <span class="inc"></span>
+                <span class="check"></span>
+                <span class="box"></span> Option 2 </label>
+        </div>
+        <div class="md-radio">
+            <input id="radio8" name="radio2" class="md-radiobtn" type="radio">
+            <label for="radio8">
+                <span></span>
+                <span class="check"></span>
+                <span class="box"></span> Option 3 </label>
+        </div>
+    </div>
+</div>
+Textarea
+<div class="form-group form-md-line-input form-md-floating-label">
+    <textarea class="form-control" rows="3"></textarea>
+    <label for="form_control_1">Textarea input</label>
+</div>
+Dropdown
+<div class="form-group form-md-line-input form-md-floating-label has-info">
+    <select class="form-control edited" id="form_control_1">
+        <option value=""></option>
+        <option value="1" selected="">Option 1</option>
+        <option value="2">Option 2</option>
+        <option value="3">Option 3</option>
+        <option value="4">Option 4</option>
+    </select>
+    <label for="form_control_1">Dropdown sample</label>
+</div>

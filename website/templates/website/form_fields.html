@@ -1,0 +1,18 @@
+{% load i18n widget_tweaks %}
+{% if field|widget_type == 'checkboxinput' %}
+    <div class="mt-checkbox-inline">
+        <label class="mt-checkbox mt-checkbox-outline" for="{{ field.id_for_label }}"> {{ field.label }}
+            {% render_field field class+="form-control" %}
+            <span></span>
+        </label>
+        <span class="help-block">{{ error }}</span>
+    </div>    
+{% else %}
+    <div class="form-group">
+        <label for="{{ field.id_for_label }}" >{{ field.label }}</label>
+        {% render_field field class+="form-control" placeholder=field.label %}
+        {% for error in field.errors %}
+            <span class="help-block">{{ error }}</span>
+        {% endfor %}
+    </div>    
+{% endif %}

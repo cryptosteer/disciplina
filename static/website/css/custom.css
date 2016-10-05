@@ -1,0 +1,57 @@
+.item-done{
+  text-decoration-line: line-through;
+}
+
+.cell-centered{
+  text-align: center;
+}
+
+table.dataTable tbody td.selected, table.dataTable tbody th.selected, table.dataTable tbody tr.selected{
+    background: #337ab7;
+}
+
+table.dataTable tbody td .selector, table.dataTable tbody th .selector, table.dataTable tbody tr .selector{
+    color: #888888;
+}
+
+table.dataTable tbody td .link-icons, table.dataTable tbody th .link-icons, table.dataTable tbody tr .link-icons{
+    color: #337ab7;
+}
+
+table.dataTable tbody td.selected i, table.dataTable tbody th.selected i, table.dataTable tbody tr.selected i{
+    color: #fff;
+}
+
+.portlet.light>.portlet-title>.tools {
+  padding: 6px 0 14px;
+  margin-top: 0px;
+}
+
+.buttons-print, .buttons-copy {
+  margin-right: 3px!important;
+}
+
+.portlet.light .dataTables_wrapper .dt-buttons {
+  margin-top: 4px;
+}
+
+.dataTables_wrapper .dt-buttons{
+  float: left;
+}
+
+.dataTables_info, .dataTables_paginate, .dataTables_length, .dataTables_filter, .dt-buttons{
+  display: inline-block;
+}
+
+.dataTables_paginate{
+  float: right;
+}
+
+.dataTables_filter{
+  float: right;
+}
+
+.toast-top-right {
+    top: 74px;
+    right: 12px;
+}

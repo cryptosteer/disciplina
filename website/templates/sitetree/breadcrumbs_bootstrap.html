@@ -1,0 +1,47 @@
+{% load sitetree %}
+{% if sitetree_items|length_is:"1" %}
+{% else %}
+<div class="page-bar">
+    <div class="page-toolbar">
+        <!--div class="btn-group pull-right">
+            <button type="button" class="btn green btn-sm btn-outline dropdown-toggle" data-toggle="dropdown"> Actions
+                <i class="fa fa-angle-down"></i>
+            </button>
+            <ul class="dropdown-menu pull-right" role="menu">
+                <li>
+                    <a href="#">
+                        <i class="icon-bell"></i> Action</a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="icon-shield"></i> Another action</a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="icon-user"></i> Something else here</a>
+                </li>
+                <li class="divider"> </li>
+                <li>
+                    <a href="#">
+                        <i class="icon-bag"></i> Separated link</a>
+                </li>
+            </ul>
+        </div-->
+        <ul class="page-breadcrumb">
+            {% for item in sitetree_items %}
+                {% if not forloop.last %}
+                    <li>
+                        <a href="{% sitetree_url for item %}">{{ item.title_resolved }}</a>
+                        <i class="fa fa-circle"></i>
+                    </li>
+                {% else %}
+                    <li>
+                        <a class="active" href="{% sitetree_url for item %}">{{ item.title_resolved }}</a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+{% endif %}

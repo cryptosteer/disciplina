@@ -1,0 +1,6 @@
+static/metronic_v4.5.6/*
+static/rest_framework/*
+static/admin/*
+website/migrations/*
+website/__pycache__/*
+project/__pycache__/*

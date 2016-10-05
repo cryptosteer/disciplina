@@ -1,0 +1,15 @@
+{% load sitetree %}
+<ul class="sub-menu">
+    {% for item in sitetree_items %}
+        <li class="nav-item {% if item.is_current or item.in_current_branch %}active{% endif %}">
+            <a class="nav-link nav-toggle" href="{% if item.has_children %}javascript:;{% else %}{% sitetree_url for item %}{% endif %}"  {% if item.has_children %}class="nav-link nav-toggle" {% endif %} {% if item.hint %}title="{{ item.hint }}"{% endif %}>
+              {% if item.icon %}<i class="{{ item.icon }}"></i>{% endif %}
+              {{ item.title_resolved }}
+              {% if item.has_children %}<span class="arrow"></span>{% endif %}
+            </a>
+            {% if item.has_children %}
+                {% sitetree_children of item for menu template "sitetree/menu_bootstrap_dropdown.html" %}
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>

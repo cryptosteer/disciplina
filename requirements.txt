@@ -1,0 +1,7 @@
+Django==1.10
+django-filter==0.14.0
+django-sitetree==1.6.0
+django-widget-tweaks==1.4.1
+djangorestframework==3.4.6
+gunicorn==19.6.0
+Markdown==2.6.6
