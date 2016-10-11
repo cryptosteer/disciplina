@@ -40,10 +40,6 @@ class Habit(models.Model):
     archived = models.BooleanField(default=False)
     description = models.TextField(blank=True)
     creation = models.DateTimeField(auto_now_add=True)
-    frecuency = models.ManyToManyField(
-        'HabitFrecuency',
-        through='HabitSchedule'
-    )
 
     def __str__(self):
         return self.name
@@ -51,17 +47,20 @@ class Habit(models.Model):
 
 class HabitSchedule(models.Model):
 
-    habit = models.ForeignKey('Habit', on_delete=models.CASCADE)
-    frecuency = models.ForeignKey('HabitFrecuency', on_delete=models.CASCADE)
-
-    class Meta():
-        auto_created = True
+    habit = models.ForeignKey(Habit, on_delete=models.CASCADE)
+    frecuency = models.ForeignKey(HabitFrecuency, on_delete=models.CASCADE)
+    number_days = models.PositiveIntegerField(null=True, blank=True)
+    week_day = models.PositiveIntegerField(null=True, blank=True)
+    day = models.PositiveIntegerField(null=True, blank=True)
+    month = models.PositiveIntegerField(null=True, blank=True)
 
 
 class HabitTask(models.Model):
 
+    name = models.CharField(max_length=100)
     habit = models.ForeignKey('Habit', on_delete=models.CASCADE)
     order_today = models.IntegerField(null=True, blank=True)
+    archived = models.BooleanField(default=False)
     done = models.BooleanField(default=False)
     estimated = models.DateTimeField(null=True, blank=True)
     finished = models.DateTimeField(null=True, blank=True)

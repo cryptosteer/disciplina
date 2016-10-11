@@ -101,28 +101,6 @@ def task_list(request):
     return JSONResponse(serializer.data)
 
 
-def habits(request):
-    return render(request, 'website/habits.html')
-
-
-def habit_list(request):
-    if request.method == "POST":
-        filterargs = {}
-        if(request.POST['location'] == "Active"):
-            filterargs['archived'] = False
-        elif(request.POST['location'] == "Archived"):
-            filterargs['archived'] = True
-        if(request.POST['working'] == "Not working"):
-            filterargs['working'] = False
-        elif(request.POST['working'] == "Working"):
-            filterargs['working'] = True
-        queryset = Habit.objects.all().order_by('order_habit').filter(**filterargs)
-        serializer = HabitSerializer(queryset, many=True)
-    else:
-        serializer = HabitSerializer()
-    return JSONResponse(serializer.data)
-
-
 class TaskCreateView(CreateView):
     model = Task
     form_class = TaskForm
@@ -223,6 +201,28 @@ def task_bulk(request):
 #     serializer_class = TaskSerializer
 
 
+def habits(request):
+    return render(request, 'website/habits.html')
+
+
+def habit_list(request):
+    if request.method == "POST":
+        filterargs = {}
+        if(request.POST['location'] == "Active"):
+            filterargs['archived'] = False
+        elif(request.POST['location'] == "Archived"):
+            filterargs['archived'] = True
+        if(request.POST['working'] == "Not working"):
+            filterargs['working'] = False
+        elif(request.POST['working'] == "Working"):
+            filterargs['working'] = True
+        queryset = Habit.objects.all().order_by('order_habit').filter(**filterargs)
+        serializer = HabitSerializer(queryset, many=True)
+    else:
+        serializer = HabitSerializer()
+    return JSONResponse(serializer.data)
+
+
 class HabitCreateView(CreateView):
     model = Habit
     form_class = HabitForm
@@ -263,3 +263,26 @@ def delete_habits(request):
         cursor.execute("DELETE FROM website_habit WHERE id in " +
                        request.POST['items'])
         return HttpResponse('<b>' + request.POST['items_count'] + '</b> habit(s) deleted')
+
+
+def habit_schedule(request, pk):
+    return render(request, 'website/habit_schedule_form.html')
+
+
+def testing(request):
+    setting = Settings.objects.get(pk=1)
+    if(setting.last_generation_date.date() != datetime.date.today()):
+        # setting.last_generation_date = datetime.date.today()
+        filterargs = {'archived': False}
+        todayItems = []
+        # if(request.POST['type'] == "Active"):
+        #     filterargs['archived'] = False
+        queryset = Habit.objects.all().order_by('order_habit').filter(**filterargs)
+        for item in queryset:
+            filterargs2 = {'archived': False}
+            queryset2 = HabitTask.objects.all().filter(**filterargs2)
+            todayItems.append(TodayItem(item.id, item.name, False, item.order_habit, 'Habit'))
+        serializer = TodayItemsSerializer(todayItems, many=True)
+    else:
+        serializer = TaskSerializer()
+    return JSONResponse(serializer.data)

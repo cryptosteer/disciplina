@@ -37,4 +37,4 @@ class HabitForm(forms.ModelForm):
 
     class Meta:
         model = Habit
-        fields = ('name', 'working', 'archived', 'description', 'frecuency',)
+        fields = ('name', 'working', 'archived', 'description', )

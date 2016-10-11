@@ -32,6 +32,17 @@ urlpatterns = [
     url(r'^habit_update/(?P<pk>[0-9]+)$',
         views.HabitUpdateView.as_view(), name='habit_update'),
     url(r'^habit_delete/$', views.delete_habits, name='habit_delete'),
+    url(r'^habit_schedule/$', views.habit_schedule, name='habit_schedule'),
+    url(r'^habit_schedule/(?P<pk>[0-9]+)$', views.habit_schedule, name='habit_schedule'),
+    # url(r'^habit_schedule_list/$', views.habit_schedule_list, name='habit_schedule_list'),
+    # url(r'^habit_schedule_create/$', views.HabitCreateView.as_view(),
+    #     name='habit_schedule_create'),
+    # url(r'^habit_schedule_update/$', views.HabitUpdateView.as_view(),
+    #     name='habit_schedule_update'),
+    # url(r'^habit_update/(?P<pk>[0-9]+)$',
+    #     views.HabitUpdateView.as_view(), name='habit_update'),
+    # url(r'^habit_delete/$', views.delete_habits, name='habit_delete'),
     # Projects
     url(r'^projects/$', views.index, name='projects'),
+    url(r'^testing/$', views.testing, name='testing'),
 ]
